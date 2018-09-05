@@ -49,6 +49,7 @@ function insertNodeAt(index, nodeKey, headKey, collection) {
 }
 
 function deleteNodeAt(index, headKey, collection) {
+  // orphan deleteNode by 'skipping' it, i.e. setting next address of previous node to next address of deletenode
   let previousNode = nodeAt(index -1, headKey, collection)
   let deleteNode = nodeAt(index, headKey, collection)
   previousNode["next"] = deleteNode["next"]
